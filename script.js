@@ -38,4 +38,16 @@ document.addEventListener('DOMContentLoaded', function() {
         taskInput.value = '';
     }
 
-    // Add
+    // Invoke addTask on DOMContentLoaded (may trigger alert due to empty input)
+    addTask();
+
+    // Add event listener to the Add Task button
+    addButton.addEventListener('click', addTask);
+
+    // Add event listener for Enter key press in input field
+    taskInput.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            addTask();
+        }
+    });
+});
